@@ -4,12 +4,14 @@ project('quickjs-gobject',
 )
 # =============================================
 
+project_include = include_directories('deps', 'src')
+
+# =============================================
+
 project_source_files = files(
   'src/module.cc',
   'src/module.hh',
 )
-
-project_include = include_directories('deps', 'src')
 
 # =============================================
 
