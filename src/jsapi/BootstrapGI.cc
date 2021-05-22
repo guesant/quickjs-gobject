@@ -16,23 +16,8 @@
  **/
 
 #include <quickjs/quickjs.h>
-#include "module.hh"
 #include "jsapi/BootstrapGI.hh"
 
-static int js_init(JSContext *ctx, JSModuleDef *m) {
-  JS_SetModuleExport(ctx, m, "GI", QJSGir::BootstrapGI(ctx));
-  return 0;
-}
+namespace QJSGir {
 
-extern "C" {
-JSModuleDef *JS_INIT_MODULE(JSContext *ctx, const char *module_name) {
-  JSModuleDef *m = JS_NewCModule(ctx, module_name, js_init);
-
-  if (!m) {
-    return NULL;
-  }
-
-  JS_AddModuleExport(ctx, m, "GI");
-  return m;
-}
 }
