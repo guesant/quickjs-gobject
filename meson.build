@@ -11,6 +11,8 @@ project_include = include_directories('deps', 'src')
 project_source_files = files(
   'src/module.cc',
   'src/module.hh',
+  'src/gi/function.cc',
+  'src/gi/function.hh',
   'src/jsapi/BootstrapGI.cc',
   'src/jsapi/BootstrapGI.hh',
   'src/utils/jsutils.cc',
