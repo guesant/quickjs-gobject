@@ -24,6 +24,12 @@
 #include "utils/error.hh"
 #include "jsapi/opaque/FunctionInfo.hh"
 
+static inline bool is_pointer_type(GITypeInfo *type_info);
+static bool should_skip_return(GIBaseInfo *info, GITypeInfo *return_type);
+static inline bool is_direction_out(GIDirection direction);
+static inline bool is_direction_in(GIDirection direction);
+static bool check_is_method(GIBaseInfo *info);
+
 namespace QJSGir {
 
 bool IsDestroyNotify(GIBaseInfo *info) {
@@ -371,9 +377,4 @@ static bool check_is_method(GIBaseInfo *info) {
 
   return (flags & GI_FUNCTION_IS_METHOD) != 0 &&
          (flags & GI_FUNCTION_IS_CONSTRUCTOR) == 0;
-}
-
-static bool should_skip_return(GIBaseInfo *info, GITypeInfo *return_type) {
-  return g_type_info_get_tag(return_type) == GI_TYPE_TAG_VOID ||
-         g_callable_info_skip_return(info) == TRUE;
 }
