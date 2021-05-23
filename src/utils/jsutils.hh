@@ -20,6 +20,7 @@
 
 namespace QJSGir {
 
+bool JS_IsTypedArray(JSContext *ctx, JSValue value);
 bool JS_IsNullOrUndefined(JSValue value);
 
 }

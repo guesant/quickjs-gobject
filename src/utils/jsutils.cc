@@ -20,6 +20,10 @@
 
 namespace QJSGir {
 
+bool JS_IsTypedArray(JSContext *ctx, JSValue value) {
+  return !JS_IsUndefined(JS_GetPropertyStr(ctx, value, "byteLength"));
+}
+
 bool JS_IsNullOrUndefined(JSValue value) {
   return JS_IsNull(value) || JS_IsUndefined(value);
 }
