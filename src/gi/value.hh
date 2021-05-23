@@ -35,5 +35,3 @@ long giargument_to_length(GITypeInfo *type_info, GIArgument *arg, bool is_pointe
 void free_giargument_array(GITypeInfo *type_info, GIArgument *arg, GITransfer transfer, GIDirection direction, long length);
 
 }
-
-#endif
